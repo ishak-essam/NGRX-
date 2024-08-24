@@ -19,7 +19,7 @@ export class CoursesResolve implements Resolve<any> {
 
     return this.store.pipe(
       select(areCouresesLoaded), tap((coureseLoaded) => {
-        if (!this.isLoading && coureseLoaded) {
+        if (!this.isLoading && !coureseLoaded) {
           this.isLoading = true;
           this.store.dispatch(loadAllCoursesAction())
         }
